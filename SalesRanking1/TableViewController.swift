@@ -23,7 +23,7 @@ class TableViewController: UITableViewController {
         let url = URL(string: "https://rss.itunes.apple.com/api/v1/jp/ios-apps/top-grossing/all/30/non-explicit.json")!
 
         URLSession.shared.dataTask(with: url) { data, response, error in
-            dump(data)
+            let item = try! JSONDecoder().decode(Item.self, from: data!)
         }.resume()
     }
 

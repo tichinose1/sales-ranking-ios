@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct Item: Decodable {
+    let feed: Feed
+}
+
+struct Feed: Decodable {
+    let results: [Result]
+}
+
 struct Result: Decodable {
     let name: String
     let artworkUrl100: String
