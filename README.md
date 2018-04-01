@@ -68,7 +68,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 
 ## データモデル
 
-- データ構造を定義して、固定データをリストに表示する
+- データ構造を定義して、固定データをリストに表示する
 
 ### Result
 
@@ -162,7 +162,7 @@ struct Result: Decodable {
 let item = try! JSONDecoder().decode(Item.self, from: data!)
 ```
 
-## 画面に表示
+## 画面に表示
 
 ### TableViewController
 
