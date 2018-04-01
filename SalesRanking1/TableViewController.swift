@@ -19,6 +19,12 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
 
         title = "Sales Ranking"
+        
+        let url = URL(string: "https://rss.itunes.apple.com/api/v1/jp/ios-apps/top-grossing/all/30/non-explicit.json")!
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            dump(data)
+        }.resume()
     }
 
     override func didReceiveMemoryWarning() {
