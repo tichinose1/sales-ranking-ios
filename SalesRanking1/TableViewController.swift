@@ -10,6 +10,11 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    var items = [
+        Result(name: "モンスターストライク", artworkUrl100: ""),
+        Result(name: "パズル＆ドラゴンズ", artworkUrl100: "")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,14 +35,13 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 20
+        return items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-
-        // Configure the cell...
-
+        cell.textLabel?.text = item.name
         return cell
     }
 
