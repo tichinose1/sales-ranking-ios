@@ -11,8 +11,8 @@ import UIKit
 class TableViewController: UITableViewController {
 
     var items = [
-        Result(name: "モンスターストライク", artworkUrl100: ""),
-        Result(name: "パズル＆ドラゴンズ", artworkUrl100: "")
+        Result(name: "モンスターストライク", artworkUrl100: "https://is3-ssl.mzstatic.com/image/thumb/Purple128/v4/d7/3a/ae/d73aae7d-b2c0-998f-c7a1-a2f60215b880/AppIcon-1x_U007emarketing-85-220-7.png/200x200bb.png"),
+        Result(name: "パズル＆ドラゴンズ", artworkUrl100: "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/c3/97/35/c397356b-bf5f-cae6-724f-5dc638a17f6c/AppIcon-1x_U007emarketing-0-85-220-0-9.png/200x200bb.png")
     ]
     
     override func viewDidLoad() {
@@ -42,7 +42,12 @@ class TableViewController: UITableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         cell.textLabel?.text = item.name
-        cell.imageView?.image = UIImage(named: "swift")
+        
+        let url = URL(string: item.artworkUrl100)!
+        let data: Data = try! Data(contentsOf: url)
+        let image = UIImage(data: data)
+        cell.imageView?.image = image
+
         return cell
     }
 
