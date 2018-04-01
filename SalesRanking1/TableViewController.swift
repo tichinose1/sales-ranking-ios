@@ -24,6 +24,11 @@ class TableViewController: UITableViewController {
 
         URLSession.shared.dataTask(with: url) { data, response, error in
             let item = try! JSONDecoder().decode(Item.self, from: data!)
+            self.items = item.feed.results
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }.resume()
     }
 
