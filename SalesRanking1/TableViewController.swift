@@ -42,6 +42,7 @@ class TableViewController: UITableViewController {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         cell.textLabel?.text = item.name
+        cell.imageView?.image = UIImage(named: "swift")
         return cell
     }
 
